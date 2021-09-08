@@ -3,10 +3,7 @@ dfs? 방문체크 리스트를 통한 재귀
 '''
 def dfs(i,N):
     if N == 6:
-        for i in range(k):
-            if v[i]:
-                print(S[i], end=" ")
-        print()
+        print(*[s for s,i in zip(S,v) if i])
         return
     else:
         for j in range(i,k):
