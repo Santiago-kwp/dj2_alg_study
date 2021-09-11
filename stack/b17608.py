@@ -10,3 +10,15 @@ for s in sticks[::-1]:
         maxs = s
         cnt += 1
 print(cnt)
+
+'''
+숏코딩
+'''
+import sys
+input()
+a=[int(i)for i in sys.stdin][::-1]
+top=a[0]
+c=1
+for i in a[1:]:
+    if i>top:c+=1;top=i
+print(c)

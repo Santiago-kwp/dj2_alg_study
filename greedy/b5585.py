@@ -4,4 +4,5 @@ numbers = []
 for money in moneys:
     numbers.append(cost//money)
     cost -= (cost//money) * money
+    cost %= money
 print(sum(numbers))

@@ -38,6 +38,7 @@ def calc(b):
         elif b[i] == ')':           # 위의 조건으로 인해 닫힌 괄호일 때 stack에는 무조건 숫자들이 스택에 쌓여있음
             n = 0
             while(stack[-1] != '('): # 열린 괄호가 나올 때까지 스택에 있는 숫자를 합치는 연산
+                                        # (()()) => (, 2, 2, ||  ) => 8 
                 n += stack.pop()
             stack.pop()              # 닫힌 괄호 제거
             stack.append(n*2)
@@ -59,4 +60,10 @@ else:
 
 
     
-
+'''
+숏코딩
+replace 를 통해 괄호를 다 풀어서 eval 로 계산함
+'''
+s=str.replace
+try:print(eval(s(s(s(s(s(input(),'()','+2'),'[]','+3'),'(','+2*('),'[','+3*['),']','][0]')))
+except:print(0)
