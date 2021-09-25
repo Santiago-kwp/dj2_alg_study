@@ -38,3 +38,34 @@ for i in range(N):
             cnt2 += 1
 
 print(cnt, cnt2)
+
+
+####################################### 참고할 만한 숏코딩
+i, r = input, range
+n = int(i())
+m, s = [[*i()] for _ in r(n)], 'RG'
+
+c, v = 0, [[0] * n for _ in r(n)]
+d, w = 0, [[0] * n for _ in r(n)]
+
+
+def p(a, b, c, d):
+    q, v[a][b] = [(a, b)], 1
+    for i, j in q:      # 선형 큐를 정의하는 대신 for문을 이용해서 q가 계속 append 되는것을 활용한 코드
+        for x, y in [(i+1, j), (i-1, j), (i, j+1), (i, j-1)]:
+            if 0 <= x < n and 0 <= y < n and not d[x][y] and m[x][y] in c:
+                d[x][y] = 1
+                q += [(x, y)]
+
+
+for i in r(n):
+    for j in r(n):
+        if not v[i][j]:
+            c += 1
+            p(i, j, m[i][j], v)
+        if not w[i][j]:
+            t = m[i][j]
+            d += 1
+            p(i, j, s if t in s else t, w) #R 이나 G 인 경우에는 RG를 보내서 `in` 으로 같은지 여부를 확인
+
+print(c, d)
