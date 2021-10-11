@@ -34,7 +34,28 @@ visited = [[[0]*M for _ in range(N)] for _ in range(2)]
 
 print(BFS())
 
-
+# inner BFS 
+# d = [0, 0, -1, 1]   
+# N, M = map(int, input().split())
+# arr = [list(map(int, input())) for _ in range(N)]
+# visited = [[[0]*M for _ in range(N)] for _ in range(2)]
+# ans = -1
+# Q = [(1, 0, 0)]
+# visited[1][0][0] = 1
+# for f, i, j in Q:
+#     if (i, j) == (N-1, M-1): 
+#         ans = visited[f][i][j]
+#         break
+#     for k in range(4):
+#         ni, nj = i+d[k], j+d[k-2]
+#         if 0 <= ni < N and 0 <= nj < M and not visited[f][ni][nj]:
+#             if not arr[ni][nj]:
+#                 Q+=[(f, ni, nj)]
+#                 visited[f][ni][nj] = visited[f][i][j] + 1
+#             elif arr[ni][nj] and f:
+#                 Q+=[(0, ni, nj)]
+#                 visited[0][ni][nj] = visited[f][i][j] + 1
+# print(ans)
 
 ### DFS 활용 시 메모리 초과 발생...
 # d = [0, 0, -1, 1]
