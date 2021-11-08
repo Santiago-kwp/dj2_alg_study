@@ -38,3 +38,15 @@ if ans:
         print(s)
 else:
     print('NO')
+
+## 요렿게 줄어들 수 있음!
+
+_,*a=map(int,open(0))
+c=1
+s=[]
+r=""
+for i in a:
+ while c<=i:s+=[c];c+=1;r+="+\n"
+ if s[-1]==i:s.pop();r+="-\n"
+ else:r="NO";break
+print(r)
